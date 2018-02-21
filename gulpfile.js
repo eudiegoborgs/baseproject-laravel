@@ -25,8 +25,8 @@ var css_files = appPathSrc + '/css/**/*.css', // .css files
   js_files = appPathSrc + '/js/**/*.js', // .js files
   less_file = appPathSrc + '/less/style.less', // .less files
   less_path = appPathSrc + '/less/**/*.less',
-  img_files = appPathSrc + '/src/img/**/*';
-  dist_path = 'public/assets';
+  img_files = appPathSrc + '/img/**/*';
+  dist_path = 'public/assets/dist';
 
 //Extension config
 var extension = 'html';
@@ -70,7 +70,7 @@ function imageTask() {
   return gulp.src(img_files)
     .pipe(imagemin())
     .pipe(imagemin())
-    .pipe(gulp.dest(img_path));
+    .pipe(gulp.dest(dist_path+'/img/'));
 }
 
 function cleanImg() {
