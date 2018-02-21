@@ -218,7 +218,7 @@ iframe {
   width: 100%;
   position: relative;
   border-bottom: 2px solid #adadad;
-  margin-bottom: 37px;
+  margin-bottom: 20px;
 }
 
 .input100 {
@@ -487,6 +487,20 @@ iframe {
     visibility: visible;
     opacity: 1;
   }
+}
+
+.alert {
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  margin-bottom: 36px;
+}
+
+.alert-danger {
+  color: #b71c1c;
+  border-color: #b71c1c;
 }
 
 

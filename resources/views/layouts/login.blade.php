@@ -15,7 +15,6 @@
     <link href="{{ asset('assets/login/css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/login/fonts/iconic/css/material-design-iconic-font.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/login/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 <body>
 	
@@ -23,13 +22,13 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 					<span class="login100-form-title p-b-26">
-						{{ config('app.name', 'Laravel') }}
-					</span>
-					<span class="login100-form-title p-b-48">
 						<i class="zmdi zmdi-font"></i>
                     </span>
+					<span class="login100-form-title p-b-26">
+						{{ config('app.name', 'Laravel') }}
+					</span>
                     @if($errors->all())
-                        <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">                    
+                        <div class="alert alert-danger fs-14 text-center" role="alert">                    
                             @foreach ($errors->all() as $error)
                                 <small>{{$error}}</small><br>
                             @endforeach

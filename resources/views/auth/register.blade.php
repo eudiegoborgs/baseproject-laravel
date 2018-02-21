@@ -1,91 +1,55 @@
-@extends('layouts.app')
+@extends('layouts.login')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+<form class="login100-form validate-form" method="POST" action="{{ route('register') }}">
+    {{ csrf_field() }}
+    <div class="wrap-input100 validate-input" data-validate = "Digite seu nome completo">
+        <input class="input100" id="name" type="name" name="name" value="{{ old('name') }}">
+        <span class="focus-input100" data-placeholder="Nome"></span>
+    </div>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+    <div class="wrap-input100 validate-input" data-validate = "Digite um nome de usuario">
+        <input class="input100" id="username" type="username" name="username" value="{{ old('username') }}">
+        <span class="focus-input100" data-placeholder="Usuario"></span>
+    </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+    <div class="wrap-input100 validate-input" data-validate = "Ex: joão@exemplo.com">
+        <input class="input100" id="email" type="email" name="email" value="{{ old('email') }}">
+        <span class="focus-input100" data-placeholder="Email"></span>
+    </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+    <div class="wrap-input100 validate-input" data-validate="Digite sua senha">
+        <span class="btn-show-pass">
+            <i class="zmdi zmdi-eye"></i>
+        </span>
+        <input class="input100" type="password" name="password" id="password">
+        <span class="focus-input100" data-placeholder="Senha"></span>
+    </div>
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+    <div class="wrap-input100 validate-input" data-validate="Confirme sua senha">
+        <span class="btn-show-pass">
+            <i class="zmdi zmdi-eye"></i>
+        </span>
+        <input class="input100" type="password" name="password_confirmation" id="password-confirmation">
+        <span class="focus-input100" data-placeholder="Confirme sua senha"></span>
+    </div>
 
-                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label for="username" class="col-md-4 control-label">Username</label>
-
-                            <div class="col-md-6">
-                                <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
-
-                                @if ($errors->has('username'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <div class="container-login100-form-btn">
+        <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button type="submit" class="login100-form-btn">
+                Inscreva-se
+            </button>
         </div>
     </div>
-</div>
+
+    <div class="text-center p-t-26">
+        <span class="txt1">
+            Já tem uma conta?
+        </span>
+        <a class="txt2" href="{{ route('login') }}">
+            Faa o seu login.
+        </a>
+    </div>
+</form>
 @endsection
