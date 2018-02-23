@@ -13,8 +13,8 @@ class UserTableSeeder extends Seeder
     $employee = new User();
     $employee->name = 'Administrador';
     $employee->username = 'admin';
-    $employee->email = 'ferreirabdiego@gmail.com';
-    $employee->password = bcrypt('Fl0r3st@');
+    $employee->email = 'adminbaseproject@gmail.com';
+    $employee->password = bcrypt('123');
     $employee->save();
     $employee->roles()->attach($role_employee);
   }

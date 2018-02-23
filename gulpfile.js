@@ -26,6 +26,7 @@ var css_files = appPathSrc + '/css/**/*.css', // .css files
   less_file = appPathSrc + '/less/style.less', // .less files
   less_path = appPathSrc + '/less/**/*.less',
   img_files = appPathSrc + '/img/**/*';
+  fonts_files = appPathSrc + '/fonts/**/*';
   dist_path = 'public/assets/dist';
 
 //Extension config
@@ -66,11 +67,14 @@ function lessTask(err) {
 }
 
 function imageTask() {
-  // cleanImg();
   return gulp.src(img_files)
     .pipe(imagemin())
-    .pipe(imagemin())
     .pipe(gulp.dest(dist_path+'/img/'));
+}
+
+function fontsTask() {
+  return gulp.src(fonts_files)
+    .pipe(gulp.dest(dist_path+'/../fonts/'));
 }
 
 function cleanImg() {
@@ -114,6 +118,11 @@ gulp.task('img', function () {
   return imageTask();
 });
 
+// The 'fonts' task
+gulp.task('fonts', function () {
+  return fontsTask();
+});
+
 // The 'clean' task
 gulp.task('clean-imgs', function () {
   return cleanImg();
@@ -139,5 +148,10 @@ gulp.task('default', function () {
   gulp.watch(img_files, function () {
     console.log('IMG task completed! ' + getTime());
     return imageTask();
+  });
+
+  gulp.watch(fonts_files, function () {
+    console.log('Fonts task completed! ' + getTime());
+    return fontsTask();
   });
 });

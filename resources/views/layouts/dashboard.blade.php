@@ -17,90 +17,136 @@
     <!-- Styles required by this views -->
 
 </head>
+<body>
 
-<!-- BODY options, add following classes to body to change options
+<div class="wrapper">
+    <div class="sidebar" data-color="azure" data-image="assets/dist/img/sidebar-5.jpg">
 
-// Header options
-1. '.header-fixed'					- Fixed Header
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="{{ url('/') }}" class="simple-text">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
+            </div>
 
-// Brand options
-1. '.brand-minimized'       - Minimized brand (Only symbol)
-
-// Sidebar options
-1. '.sidebar-fixed'					- Fixed Sidebar
-2. '.sidebar-hidden'				- Hidden Sidebar
-3. '.sidebar-off-canvas'		- Off Canvas Sidebar
-4. '.sidebar-minimized'			- Minimized Sidebar (Only icons)
-5. '.sidebar-compact'			  - Compact Sidebar
-
-// Aside options
-1. '.aside-menu-fixed'			- Fixed Aside Menu
-2. '.aside-menu-hidden'			- Hidden Aside Menu
-3. '.aside-menu-off-canvas'	- Off Canvas Aside Menu
-
-// Breadcrumb options
-1. '.breadcrumb-fixed'			- Fixed Breadcrumb
-
-// Footer options
-1. '.footer-fixed'					- Fixed footer
-
--->
-
-<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
-  <header class="app-header navbar">
-    <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#"></a>
-    <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-  </header>
-
-  <div class="app-body">
-    <div class="sidebar">
-      <nav class="sidebar-nav">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-primary">NEW</span></a>
-          </li>
-
-        </ul>
-      </nav>
-      <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+            <ul class="nav">
+                <li class="active">
+                    <a href="dashboard.html">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="user.html">
+                        <i class="pe-7s-user"></i>
+                        <p>User Profile</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="table.html">
+                        <i class="pe-7s-note2"></i>
+                        <p>Table List</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="typography.html">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Typography</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="icons.html">
+                        <i class="pe-7s-science"></i>
+                        <p>Icons</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="maps.html">
+                        <i class="pe-7s-map-marker"></i>
+                        <p>Maps</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="notifications.html">
+                        <i class="pe-7s-bell"></i>
+                        <p>Notifications</p>
+                    </a>
+                </li>
+            </ul>
+    	</div>
     </div>
 
-    <!-- Main content -->
-    <main class="main">
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Dashboard</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-dashboard"></i>
+								<p class="hidden-lg hidden-md">Dashboard</p>
+                            </a>
+                        </li>
+                    </ul>
 
-      <div class="container-fluid">
-        @yield('content')
-      </div>
-      <!-- /.conainer-fluid -->
-    </main>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              <p>
+                                {{ Auth::user()->name }}
+                                <b class="caret"></b>
+                              </p>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Perfil</a></li>
+                              <li><a href="#">Another action</a></li>
+                              <li class="divider"></li>
+                              <li>
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                              document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
 
-  </div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                              </li>
+                            </ul>
+                        </li>
+						            <li class="separator hidden-lg"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-  <footer class="app-footer">
-    <span><a href="{{ route('index') }}">{{ config('app.name', 'Laravel') }}</a> © 2018.</span>
-    <span class="ml-auto">Desenvolvido por <a href="http://diegoborgs.com.br">Diego Borges</a></span>
-  </footer>
 
-  <!-- Bootstrap and necessary plugins -->
-  {{--  <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="node_modules/pace-progress/pace.min.js"></script>  --}}
+        <div class="content">
+          @yield('content')
+        </div>
 
-  <!-- CoreUI main scripts -->
 
-  {{--  <script src="js/app.js"></script>  --}}
+        <footer class="footer">
+            <div class="container-fluid">
+                <p class="copyright pull-right">
+                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+	  <script src="{{ asset('assets/dist/concat.min.js') }}"></script>
+</div>
 
-  <!-- Plugins and scripts required by this views -->
-
-  <!-- Custom scripts required by this view -->
-  {{--  <script src="js/views/main.js"></script>  --}}
 
 </body>
+
 </html>

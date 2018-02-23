@@ -19,7 +19,7 @@
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100">
+		<div class="container-login100" data-color="azure" data-image="assets/dist/img/sidebar-5.jpg">
 			<div class="wrap-login100">
 					<span class="login100-form-title p-b-26">
 						<i class="zmdi zmdi-font"></i>

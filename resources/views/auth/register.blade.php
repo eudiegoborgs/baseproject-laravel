@@ -48,7 +48,7 @@
             Já tem uma conta?
         </span>
         <a class="txt2" href="{{ route('login') }}">
-            Faa o seu login.
+            Faça o seu login.
         </a>
     </div>
 </form>
